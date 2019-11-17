@@ -7,11 +7,13 @@ import {
   Button,
   TextInput
 } from 'react-native';
+import { useNavigation } from 'react-navigation-hooks';
+import DropdownAlert from 'react-native-dropdownalert';
 import Request from './api/Request';
 import { API } from './api/api';
-import DropdownAlert from 'react-native-dropdownalert';
 
 export default function Login() {
+  const { navigate } = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   var dropDownAlertRef;
@@ -30,7 +32,8 @@ export default function Login() {
     try {
       const req = await Request.post().to(API.AUTH.LOGIN).payload(parameters).send();
 
-      dropDownAlertRef.alertWithType('success', 'Success', 'Succesfully logged in.')
+      dropDownAlertRef.alertWithType('success', 'Success', 'Succesfully logged in.');
+      navigate('Map');
     } catch (err) {
       dropDownAlertRef.alertWithType('error', 'Erreur', err.message);
     }
@@ -44,7 +47,7 @@ export default function Login() {
               <TextInput onChangeText={(text) => setPassword(text)} placeholder='Mot de passe' placeholderTextColor='#FFFFFF' secureTextEntry={true} style={{ width: '80%', borderBottomColor: '#FFF', borderBottomWidth: 1, marginTop: 30 }} />
               <Button title='Se connecter' onPress={_loginButtonPressed} style={{ marginTop: 30 }} />
             </View>
-         <DropdownAlert ref={ref => dropDownAlertRef = ref} />
+            <DropdownAlert ref={ref => dropDownAlertRef = ref} />
         </View>
       </TouchableWithoutFeedback>
   );
