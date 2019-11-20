@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   TouchableWithoutFeedback,
   View,
@@ -11,6 +11,7 @@ import { useNavigation } from 'react-navigation-hooks';
 import DropdownAlert from 'react-native-dropdownalert';
 import Request from './api/Request';
 import { API } from './api/api';
+import { IS_IOS } from './common/const';
 
 export default function Login() {
   const { navigate } = useNavigation();
@@ -33,7 +34,10 @@ export default function Login() {
       const req = await Request.post().to(API.AUTH.LOGIN).payload(parameters).send();
 
       dropDownAlertRef.alertWithType('success', 'Success', 'Succesfully logged in.');
-      navigate('Map');
+      // RECEIVE NOTIF
+      if (!IS_IOS) {
+        navigate('Map');
+      }
     } catch (err) {
       dropDownAlertRef.alertWithType('error', 'Erreur', err.message);
     }
