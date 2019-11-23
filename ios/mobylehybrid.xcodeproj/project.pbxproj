@@ -59,6 +59,7 @@
 		35B7CFE344E4D37A955188AC /* Pods-mobylehybrid.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobylehybrid.debug.xcconfig"; path = "Target Support Files/Pods-mobylehybrid/Pods-mobylehybrid.debug.xcconfig"; sourceTree = "<group>"; };
 		3A8A630D5B4223C9C9F43128 /* Pods-mobylehybrid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobylehybrid.release.xcconfig"; path = "Target Support Files/Pods-mobylehybrid/Pods-mobylehybrid.release.xcconfig"; sourceTree = "<group>"; };
 		3F1350BD9162F0CA197E7DC2 /* Pods-mobylehybrid-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobylehybrid-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-mobylehybrid-tvOS/Pods-mobylehybrid-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		41BEC4672383F3FA00422387 /* mobylehybrid.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = mobylehybrid.entitlements; path = mobylehybrid/mobylehybrid.entitlements; sourceTree = "<group>"; };
 		5BE98419CA3F3C9347E5F9CD /* Pods-mobylehybrid-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobylehybrid-tvOS.release.xcconfig"; path = "Target Support Files/Pods-mobylehybrid-tvOS/Pods-mobylehybrid-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		82B6EAD3B9C7DAF2E0E1D033 /* libPods-mobylehybrid-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mobylehybrid-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA6424D70DCE17F29AA4F27 /* libPods-mobylehybrid.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mobylehybrid.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +126,7 @@
 		13B07FAE1A68108700A75B9A /* mobylehybrid */ = {
 			isa = PBXGroup;
 			children = (
+				41BEC4672383F3FA00422387 /* mobylehybrid.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +163,6 @@
 				CAA5E42940599F4A47437B7B /* Pods-mobylehybridTests.debug.xcconfig */,
 				32A768246B571C1256B56FF3 /* Pods-mobylehybridTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -290,14 +291,20 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8W35AB3VA5;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 8W35AB3VA5;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8W35AB3VA5;
 						ProvisioningStyle = Automatic;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8W35AB3VA5;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
@@ -308,6 +315,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -583,6 +591,7 @@
 			baseConfigurationReference = CAA5E42940599F4A47437B7B /* Pods-mobylehybridTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -607,6 +616,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				INFOPLIST_FILE = mobylehybridTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -626,8 +636,10 @@
 			baseConfigurationReference = 35B7CFE344E4D37A955188AC /* Pods-mobylehybrid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = mobylehybrid/mobylehybrid.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				INFOPLIST_FILE = mobylehybrid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -646,7 +658,9 @@
 			baseConfigurationReference = 3A8A630D5B4223C9C9F43128 /* Pods-mobylehybrid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = mobylehybrid/mobylehybrid.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				INFOPLIST_FILE = mobylehybrid/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -671,6 +685,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mobylehybrid-tvOS/Info.plist";
@@ -700,6 +715,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mobylehybrid-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -726,6 +742,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mobylehybrid-tvOSTests/Info.plist";
@@ -754,6 +771,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8W35AB3VA5;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "mobylehybrid-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
